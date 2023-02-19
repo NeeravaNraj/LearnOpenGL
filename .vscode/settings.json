@@ -1,5 +1,7 @@
 {
   "files.associations": {
     "iostream": "cpp"
-  }
+  },
+  "cmake.sourceDirectory": "${workspaceFolder}/src/inc/glm"
+  // "C_Cpp.errorSquiggles": "disabled"
 }

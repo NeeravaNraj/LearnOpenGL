@@ -17,13 +17,17 @@ void Camera::updateCameraVectors(){
 
 void Camera::ProcessKeyboard(Camera_Movement direction, float deltaTime){
     float velocity = MovementSpeed * deltaTime;
+    float oldY = Position.y;
+
     switch (direction){
         case Forward:
-            Position += velocity * Front; 
+            Position += velocity * Front;
+            Position.y = oldY;
             break;
         
         case Backward:
-            Position -= velocity * Front; 
+            Position -= velocity * Front;
+            Position.y = oldY;
             break;
 
         case Right:
@@ -51,7 +55,7 @@ void Camera::ProcessMouseMovement(float xOffset, float yOffset, GLboolean constr
     xOffset *= SENS;
     yOffset *= SENS;
 
-    Yaw += xOffset;
+    Yaw = glm::mod(Yaw + xOffset, 360.0f);
     Pitch += yOffset;
     if (constraintPitch) {
         if (Pitch > 89.0f)

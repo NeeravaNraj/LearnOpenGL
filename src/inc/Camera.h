@@ -7,7 +7,7 @@
 #include <vector>
 #define DEF_YAW -90.0f
 #define DEF_PITCH 0.0f
-#define MOVE_SPEED 2.5f
+#define MOVE_SPEED 3.5f
 #define SENS 0.07f
 #define FOV 45.0f
 
@@ -31,7 +31,9 @@ class Camera {
 
         float Yaw, Pitch, MovementSpeed, Sensitivity, Zoom;
 
-        Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = DEF_YAW, float pitch = DEF_PITCH) : Front(glm::vec3(0.0f, 0.0f, 1.0f)), MovementSpeed(MOVE_SPEED), Sensitivity(SENS), Zoom(FOV){
+        Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = DEF_YAW, float pitch = DEF_PITCH) 
+        : 
+        Front(glm::vec3(0.0f, 0.0f, 1.0f)), MovementSpeed(MOVE_SPEED), Sensitivity(SENS), Zoom(FOV){
             Position = position;
             WorldUp = up;
             Yaw = yaw;  
@@ -40,7 +42,9 @@ class Camera {
         }
 
 
-        Camera(float xpos, float ypos, float zpos, float upX, float upY, float upZ, float yaw, float pitch) : Front(glm::vec3(0.0f, 0.0f, 1.0f)), MovementSpeed(MOVE_SPEED), Sensitivity(SENS), Zoom(FOV){
+        Camera(float xpos, float ypos, float zpos, float upX, float upY, float upZ, float yaw, float pitch) 
+        : 
+        Front(glm::vec3(0.0f, 0.0f, 1.0f)), MovementSpeed(MOVE_SPEED), Sensitivity(SENS), Zoom(FOV){
             Position = glm::vec3(xpos, ypos, zpos);
             WorldUp = glm::vec3(upX, upY, upZ);
             Yaw = yaw;
